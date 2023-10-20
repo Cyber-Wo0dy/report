@@ -1,0 +1,30 @@
+Presentation:
+Data: 18/10/2023
+Autor: David Silva
+
+Security vulnerability: URL Parameter Tampering
+Affected Component: Parameter for viewing and changing the admin password.
+CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:H/I:H/A:H
+
+Product: Boltwire
+Version: 6.03
+Vendor: www.boltwire.com
+
+Vulnerability Description
+Version 6.03 is vulnerable to "URL Parameter Tampering", through the parameter "index.php?p=member.admin&action=data", where it is possible for an attacker to view the password of any member, including the admin.
+
+Impact
+Through this vulnerability, the attacker can view the password of any user, including the application administrator, and can take advantage of this flaw to steal information, change data or manipulate the application for malicious purposes.
+
+To Reproduce:
+
+1) Create a new member.
+
+2) Access the following URL:
+http://domain.com/folder/index.php?p=member.admin&action=data
+
+Note: replace "http://domain.com/folder/" with the address of the application to be tested.
+
+3) As a result, you will be able to view the admin password.
+
+4) To view other users' passwords, simply change the “admin” parameter in the URL provided above to another user's name, for example "member.user".
