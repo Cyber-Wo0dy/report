@@ -2,7 +2,7 @@ Presentation:
 Data: 18/10/2023
 Autor: David Silva
 
-Security vulnerability: URL Parameter Tampering
+Security vulnerability: Improper Access Control
 Affected Component: Parameter for viewing and changing the admin password.
 CVSS:3.1/AV:N/AC:L/PR:H/UI:R/S:C/C:H/I:H/A:H
 
@@ -11,7 +11,7 @@ Version: 6.03
 Vendor: www.boltwire.com
 
 Vulnerability Description
-Version 6.03 is vulnerable to "URL Parameter Tampering", through the parameter "index.php?p=member.admin&action=data", where it is possible for an attacker to view the password of any member, including the admin.
+Version 6.03 is vulnerable to "Improper Access Control", through the parameter "index.php?p=member.admin&action=data", where it is possible for an attacker to view the password of any member, including the admin.
 
 Impact
 Through this vulnerability, the attacker can view the password of any user, including the application administrator, and can take advantage of this flaw to steal information, change data or manipulate the application for malicious purposes.
