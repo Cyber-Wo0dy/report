@@ -1,0 +1,30 @@
+Presentation:
+Data: 18/10/2023
+Autor: David Silva
+
+Security vulnerability: Cross site scripting (XSS)
+Affected Component: The "First Name" and "Last Name" input fields on the member registration page.
+CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N
+
+Product: Boltwire
+Version: 8.00
+Vendor: www.boltwire.com
+
+Vulnerability Description
+The "First Name" and "Last Name" fields on the BoltWire version 8.00 member registration completion page are vulnerable to cross-site scripting (XSS) attacks. This type of attack allows malicious scripts to be executed.
+
+Impact
+By exploiting this vulnerability, the attacker will be able to execute scripts that could lead to different malicious activities, such as stealing session cookies or login credentials, redirects, installing malware, among others.
+
+Fix Suggestion
+Sanitize user entries in these fields.
+
+To Reproduce:
+1) Proceed with creating a new member.
+
+2) On the next page, you will be asked to enter the new member’s “First Name”, “Last Name” and “Country”. Here, fill in "First Name:" and "Last Name:" with the following payloads:
+
+<script>alert(XSS)</script>
+<script>alert(document.cookie)</script>
+
+3) As a result, when the administrator goes to the “Members” page and tries to list recent members, the payloads will be triggered.
