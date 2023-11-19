@@ -2,8 +2,8 @@ Presentation:
 Data: 14/11/2023
 Autor: David Silva
 
-Security vulnerability: Uploading Malicious Files in the “File Upload" feature in the Form
-
+Security vulnerability: Uploading Malicious Files
+Affected Component:  The “File Upload" feature in the Form
 CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H
 
 Product: Microweber
