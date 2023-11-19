@@ -1,0 +1,43 @@
+Presentation:
+Data: 14/11/2023
+Autor: David Silva
+
+Security vulnerability: Uploading Malicious Files in the “File Upload" feature in the Form
+
+CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H
+
+Product: Microweber
+Version: 2.0.4
+Vendor: Microweber (https://microweber.org/)
+
+Vulnerability Description
+Version 2.0.4 of Microweber is vulnerable to uploading malicious files in the “File Upload” functionality of created Forms - even when certain types of validations are applied in this field. This vulnerability allows an attacker to upload a malicious HTML file.
+
+Impact
+By exploiting this vulnerability, the attacker will be able to execute scripts that could lead to different malicious activities, such as stealing session cookies or login credentials, redirects, installing malware, among others.
+
+To Fix
+Update to the latest version of Microweber.
+
+To Reproduce:
+1) In a Microweber installation, create a page with a contact form and add the "File Upload" field.
+
+2) Create a new file with the content below and save it as poc.htm :
+
+<svg></svg>
+<html>
+    <head>     
+    </head>
+    <body>
+        <h1>Hi!</h1>
+<script>alert(document.cookie)</script>
+    </body>
+</html>
+
+
+3) Access the form page and upload the created poc.htm file. Note that it will be accepted.
+
+6) Now, to run the sent file, simply access http://yoursite.com/userfiles/media/default/contact_form/poc.htm
+
+Note: please note that the above steps work even when there are some validation measures in the “File Upload” field such as “Image Files” and “Custom File Types” such as “jpg”.
+
