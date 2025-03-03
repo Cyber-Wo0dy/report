@@ -1,0 +1,29 @@
+Presentation:
+Data: 30/10/2023
+Autor: David Silva
+
+Security vulnerability: URL Redirection to Untrusted Site ('Open Redirect')
+Affected Component: The "return=" parameter in the url used for the logout function
+CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:A/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N
+
+Product: User key authentication
+Version: 2022081901
+Vendor: Catalyst (https://www.catalyst-au.net/contact-us)
+
+Vulnerability Description
+Open redirect vulnerability in the "return=" parameter of the url used for the logout function in the moodle plugin "User Key Authentication". An attacker could use this vulnerability to redirect users to arbitrary websites by tricking them into clicking the link.
+
+Impact
+By exploiting this vulnerability, the attacker can redirect users/targets to any arbitrary address when clicking on the link.
+
+Fix Suggestion
+Adjust the logout function to not allow the user to control where the page is redirected to after logout.
+
+To Reproduce:
+1) Install the plugin "User key authentication" in a test environment where Moodle is running.
+
+2) In your browser, add "/auth/userkey/logout.php?return=" to the address of your test environment, adding any web address after "return=", as in the example below:
+
+http://yourdomain.com/auth/userkey/logout.php?return=http://maliciouswebsite.com
+
+Note: The user does not need to be logged in for the redirect to work.
